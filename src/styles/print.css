@@ -1,0 +1,158 @@
+/* ==========================================================================
+   Print
+   The print root is populated on demand and isolated from the application UI.
+   ========================================================================== */
+
+.print-root {
+  display: none;
+}
+
+.print-document {
+  font-family: Arial, 'Helvetica Neue', sans-serif;
+  color: #000000;
+  padding: 20px;
+}
+
+.print-document__header {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 20px;
+  padding-bottom: 10px;
+  margin-bottom: 20px;
+  border-bottom: 2px solid #0284c7;
+}
+
+.print-document__brand {
+  color: #0284c7;
+  font-size: 20px;
+  font-weight: 700;
+  margin: 0;
+}
+
+.print-document__subtitle {
+  margin: 4px 0 0 0;
+  color: #555555;
+  font-size: 12px;
+}
+
+.print-document__meta {
+  text-align: right;
+  font-size: 12px;
+}
+
+.print-document__code {
+  margin: 0;
+  font-size: 16px;
+  font-weight: 700;
+  color: #333333;
+}
+
+.print-document__date {
+  margin: 4px 0 0 0;
+  font-size: 11px;
+  color: #777777;
+}
+
+.print-document__section-title {
+  margin: 0 0 6px 0;
+  padding-bottom: 5px;
+  border-bottom: 1px solid #dddddd;
+  color: #0284c7;
+  font-size: 14px;
+  font-weight: 700;
+}
+
+.print-table {
+  width: 100%;
+  margin-bottom: 20px;
+  border-collapse: collapse;
+  font-size: 12px;
+}
+
+.print-table th,
+.print-table td {
+  padding: 8px;
+  border: 1px solid #dddddd;
+  text-align: left;
+  vertical-align: top;
+}
+
+.print-table thead th {
+  background-color: #e0f2fe;
+  color: #0c4a6e;
+}
+
+.print-table--accent thead th {
+  background-color: #0284c7;
+  color: #ffffff;
+}
+
+.print-table__label {
+  width: 30%;
+  background-color: #f9f9f9;
+  font-weight: 700;
+}
+
+.print-table__center {
+  text-align: center;
+}
+
+.print-summary {
+  margin-bottom: 20px;
+  font-size: 12px;
+}
+
+.print-summary p {
+  margin: 0 0 4px 0;
+}
+
+.print-signatures {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 20px;
+  margin-top: 30px;
+}
+
+.print-signature {
+  width: 45%;
+  padding-top: 5px;
+  border-top: 1px solid #333333;
+  text-align: center;
+  font-size: 12px;
+}
+
+.print-signature__name {
+  font-weight: 700;
+}
+
+.print-signature__doc {
+  font-size: 11px;
+  color: #555555;
+}
+
+@media print {
+  @page {
+    size: A4;
+    margin: 12mm;
+  }
+
+  body {
+    background: #ffffff;
+  }
+
+  .app-shell,
+  .toast-stack,
+  .modal-layer {
+    display: none !important;
+  }
+
+  .print-root {
+    display: block !important;
+  }
+
+  .print-document {
+    padding: 0;
+  }
+}
